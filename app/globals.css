@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fdfaf5;
+  --color-paper-2: #f5ede3;
+  --color-line: #ece0d4;
+  --color-line-2: #e4d4c4;
+  --color-ink: #1c1a17;
+  --color-ink-2: #4a4038;
+  --color-muted: #7a6d63;
+  --color-faint: #9c8c80;
+  --color-clay: #c87358;
+  --color-clay-dark: #a85f3e;
+  --color-moss: #5a9e7c;
+  --color-moss-dark: #3d7a5a;
+  --color-plum: #5a4a8a;
+  --color-tota-paper: #fbf3e0;
+  --color-tota-ink: #1e3a2a;
+  --color-tota-green: #178a4c;
+  --color-tota-marigold: #ffd24a;
+
+  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+::selection {
+  background: #c87358;
+  color: #fdfaf5;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scroll reveal. Elements start hidden only when JS has marked the page. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
