@@ -1,5 +1,4 @@
 import SectionHead from "./SectionHead";
-import { ArrowUpRight } from "./icons";
 
 const items = [
   {
@@ -24,32 +23,37 @@ const items = [
 
 export default function Now() {
   return (
-    <section id="now" className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+    <section
+      id="now"
+      className="mx-auto max-w-[1240px] px-6 pt-16 pb-16 sm:px-8 md:pt-20 md:pb-20"
+    >
       <SectionHead index="05" label="Now" title="What I'm doing this month." />
 
-      <dl className="mt-12 divide-y divide-line border-y border-line">
+      <dl className="border-b border-ink">
         {items.map((it) => (
-          <div key={it.k} className="reveal grid gap-3 py-7 md:grid-cols-[180px_1fr_auto] md:items-baseline md:gap-8">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{it.k}</dt>
-            <dd className="max-w-[640px] font-sans text-[16px] leading-[1.7] text-ink-2">{it.v}</dd>
-            <dd>
+          <div
+            key={it.k}
+            className="reveal grid items-baseline gap-x-6 gap-y-2 border-b border-rule py-6 md:grid-cols-[130px_1fr_160px]"
+          >
+            <dt className="t-label text-blue">{it.k}</dt>
+            <dd className="max-w-[62ch] text-[15.5px] leading-[1.62] text-ink-2">
+              {it.v}
+            </dd>
+            <dd className="md:text-right">
               <a
                 href={it.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-faint transition-colors hover:text-ink"
+                className="t-label inline-flex min-h-11 items-center text-faint transition-colors duration-150 hover:text-ink"
               >
-                {it.cta}
-                <ArrowUpRight size={13} />
+                {it.cta} ↗
               </a>
             </dd>
           </div>
         ))}
       </dl>
 
-      <p className="reveal mt-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-faint">
-        Updated September 2026
-      </p>
+      <p className="reveal t-label mt-5 text-faint">Updated September 2026</p>
     </section>
   );
 }

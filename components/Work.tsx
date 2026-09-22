@@ -1,10 +1,10 @@
 import Image from "next/image";
 import SectionHead from "./SectionHead";
-import { ArrowUpRight, Github, Play } from "./icons";
 
 type Category = "Product" | "AI tool" | "Dev tool";
 
 interface Project {
+  idx: string;
   name: string;
   category: Category;
   what: string;
@@ -16,15 +16,17 @@ interface Project {
 
 const projects: Project[] = [
   {
+    idx: "002",
     name: "docsParity",
     category: "AI tool",
     what: "Finds where an SDK's docs and code have drifted apart.",
     why: "Reads the real exported API from the TypeScript compiler, crawls the live docs, and has an LLM rank every mismatch by severity. Each finding becomes a pre-filled GitHub issue.",
-    tags: ["TypeScript", "TS Compiler AST", "Next.js"],
+    tags: ["TypeScript", "Compiler AST", "Next.js"],
     live: "https://docsparity.vercel.app",
     github: "https://github.com/reetbatra/docs-parity",
   },
   {
+    idx: "003",
     name: "Blunt",
     category: "AI tool",
     what: "A speech coach that tells you exactly what to fix, then makes you say it again.",
@@ -34,6 +36,7 @@ const projects: Project[] = [
     github: "https://github.com/reetbatra/blunt",
   },
   {
+    idx: "004",
     name: "Muscle Mommy",
     category: "Product",
     what: "A lifting PWA that decides your next set for you.",
@@ -43,6 +46,7 @@ const projects: Project[] = [
     github: "https://github.com/reetbatra/muscle-mommy",
   },
   {
+    idx: "005",
     name: "bestie, don't.",
     category: "Product",
     what: "The friend who takes your phone after a breakup.",
@@ -51,6 +55,7 @@ const projects: Project[] = [
     live: "https://bestie.reetbatra.com",
   },
   {
+    idx: "006",
     name: "Nudge",
     category: "Product",
     what: "A job tracker for people who struggle to act on opportunities.",
@@ -60,6 +65,7 @@ const projects: Project[] = [
     github: "https://github.com/reetbatra/nudge",
   },
   {
+    idx: "007",
     name: "hook-catch",
     category: "Dev tool",
     what: "Debug webhooks in real time, no account needed.",
@@ -70,191 +76,124 @@ const projects: Project[] = [
   },
 ];
 
-const categoryTone: Record<Category, string> = {
-  Product: "bg-[#fff3ea] border-[#e8c8a8] text-clay-dark",
-  "AI tool": "bg-[#eef6f1] border-[#b4d8c4] text-moss-dark",
-  "Dev tool": "bg-[#f2eeff] border-[#ccc0e8] text-plum",
-};
-
-function Pill({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Feature() {
   return (
-    <span
-      className={`inline-flex items-center rounded-full border px-2.5 py-[3px] font-mono text-[10px] tracking-[0.05em] ${className}`}
-    >
-      {children}
-    </span>
-  );
-}
-
-function Featured() {
-  return (
-    <article className="reveal relative overflow-hidden rounded-3xl border-2 border-tota-ink bg-tota-paper text-tota-ink shadow-[6px_6px_0_#1e3a2a]">
-      <div className="grid md:grid-cols-[1.15fr_0.85fr]">
-        <div className="p-7 sm:p-10">
-          <div className="mb-6 flex flex-wrap items-center gap-2">
-            <Pill className="border-tota-ink bg-tota-marigold text-tota-ink">Flagship</Pill>
-            <Pill className="border-tota-ink bg-white text-tota-ink">Product</Pill>
-            <Pill className="border-tota-ink bg-tota-green text-tota-paper">Live on Google Play</Pill>
+    <article className="reveal border border-ink">
+      <div className="grid md:grid-cols-[1.25fr_0.75fr]">
+        <div className="border-b border-rule p-7 md:border-b-0 md:border-r md:p-9">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="t-label bg-acid px-2 py-1 text-[10px]">
+              001 · Flagship
+            </span>
+            <span className="t-label border border-rule px-2 py-1 text-[10px] text-muted">
+              Product
+            </span>
+            <span className="t-label border border-rule px-2 py-1 text-[10px] text-muted">
+              Live on Google Play
+            </span>
           </div>
 
-          <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-tota-ink/60">
-            The Daily Tota · Vol. You
-          </div>
-          <h3 className="font-serif text-[clamp(40px,5vw,64px)] leading-[0.98] tracking-[-0.02em]">
-            AskTota
-          </h3>
-          <p className="mt-4 max-w-[480px] font-sans text-[17px] font-semibold leading-[1.5]">
+          <h3 className="t-head mt-7 text-[clamp(36px,4.6vw,58px)]">AskTota</h3>
+          <p className="mt-4 max-w-[46ch] text-[16.5px] font-semibold leading-[1.45]">
             Real Vedic astrology, filed as a tabloid. Your actual birth chart,
             read against today, written like your group chat.
           </p>
-          <p className="mt-4 max-w-[500px] font-sans text-[14.5px] leading-[1.7] text-tota-ink/80">
-            Daily readings, crush checks, celeb charts, and a chat that cites the
-            chart data behind every claim. No ads, no data brokers, no dark
+          <p className="mt-4 max-w-[52ch] text-[14.5px] leading-[1.66] text-muted">
+            Daily readings, crush checks, celeb charts, and a chat that cites
+            the chart data behind every claim. No ads, no data brokers, no dark
             patterns. The astrology is computed deterministically; the LLM only
             interprets. Android now, iOS next.
           </p>
 
-          <dl className="mt-7 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-            {[
-              ["My role", "Product, the app, brand system, website, growth. Built with one engineering partner."],
-              ["Growth engine", "A 19-piece explainer library with calculators, a reels-first Instagram schedule, and a landing page that sells the free tier honestly."],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.12em] text-tota-ink/60">{k}</dt>
-                <dd className="mt-1 font-sans text-[13.5px] leading-[1.6]">{v}</dd>
-              </div>
-            ))}
+          <dl className="mt-8 grid gap-x-8 gap-y-5 border-t border-rule pt-6 sm:grid-cols-2">
+            <div>
+              <dt className="t-label text-muted">My role</dt>
+              <dd className="mt-1.5 text-[13.5px] leading-[1.55]">
+                Product, the app, brand system, website, growth. Built with one
+                engineering partner.
+              </dd>
+            </div>
+            <div>
+              <dt className="t-label text-muted">Growth engine</dt>
+              <dd className="mt-1.5 text-[13.5px] leading-[1.55]">
+                A 19-piece explainer library with calculators, a reels-first
+                Instagram schedule, and a landing page that sells the free tier
+                honestly.
+              </dd>
+            </div>
           </dl>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex w-fit border border-ink">
             <a
               href="https://www.asktota.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-tota-ink bg-tota-green px-5 font-sans text-[13.5px] font-bold text-tota-paper shadow-[3px_3px_0_#1e3a2a] transition-transform duration-150 hover:translate-y-px hover:shadow-[2px_2px_0_#1e3a2a]"
+              className="t-label flex min-h-11 items-center bg-ink px-5 text-paper transition-colors duration-150 hover:bg-blue"
             >
-              asktota.com
-              <ArrowUpRight size={15} />
+              asktota.com →
             </a>
             <a
               href="https://play.google.com/store/apps/details?id=app.asktota"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-tota-ink bg-white px-5 font-sans text-[13.5px] font-bold text-tota-ink shadow-[3px_3px_0_#1e3a2a] transition-transform duration-150 hover:translate-y-px hover:shadow-[2px_2px_0_#1e3a2a]"
+              className="t-label flex min-h-11 items-center border-l border-ink px-5 transition-colors duration-150 hover:bg-acid"
             >
-              <Play size={14} />
               Google Play
-            </a>
-            <a
-              href="https://www.instagram.com/asktotaa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.08em] text-tota-ink/70 transition-colors hover:text-tota-ink"
-            >
-              @asktotaa
             </a>
           </div>
 
           <ul className="mt-7 flex flex-wrap gap-1.5">
-            {["React Native", "Expo", "Node.js", "TypeScript", "Python engine", "LLM"].map((t) => (
-              <li key={t} className="rounded-full border border-tota-ink/25 bg-white/60 px-2.5 py-1 font-mono text-[10px] text-tota-ink/80">
-                {t}
-              </li>
-            ))}
+            {["React Native", "Expo", "Node.js", "TypeScript", "Python engine", "LLM"].map(
+              (t) => (
+                <li
+                  key={t}
+                  className="t-label border border-rule px-2 py-1 text-[10px] text-muted"
+                >
+                  {t}
+                </li>
+              )
+            )}
           </ul>
         </div>
 
-        <div className="relative min-h-[420px] overflow-hidden border-t-2 border-tota-ink bg-[#f4eedd] md:border-l-2 md:border-t-0">
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-70 [background-image:radial-gradient(#e3d9c0_1.4px,transparent_1.4px)] [background-size:7px_7px]"
-          />
-          <Image
-            src="/asktota-parrot.png"
-            alt=""
-            width={150}
-            height={150}
-            className="absolute left-5 top-5 w-[110px] rotate-[-8deg] sm:w-[140px]"
-          />
-          <div className="absolute bottom-[-40px] left-1/2 w-[230px] -translate-x-[62%] rotate-[-6deg] overflow-hidden rounded-[28px] border-[3px] border-tota-ink bg-white shadow-[6px_6px_0_#1e3a2a] sm:w-[250px]">
+        {/* Screenshots, square-framed */}
+        <div className="flex flex-col bg-paper-2">
+          <div className="grid flex-1 grid-cols-2">
+          <div className="relative min-h-[340px] border-r border-rule">
             <Image
               src="/asktota-home.webp"
               alt="AskTota home screen, a tabloid-style daily reading"
-              width={576}
-              height={1280}
-              sizes="250px"
-              className="w-full"
+              fill
+              sizes="(max-width: 768px) 50vw, 200px"
+              className="object-cover object-top"
             />
           </div>
-          <div className="absolute bottom-[-60px] left-1/2 w-[210px] translate-x-[8%] rotate-[7deg] overflow-hidden rounded-[28px] border-[3px] border-tota-ink bg-white shadow-[6px_6px_0_#1e3a2a] sm:w-[230px]">
+          <div className="relative min-h-[340px]">
             <Image
               src="/asktota-daily.webp"
               alt="AskTota daily read screen"
-              width={720}
-              height={1280}
-              sizes="230px"
-              className="w-full"
+              fill
+              sizes="(max-width: 768px) 50vw, 200px"
+              className="object-cover object-top"
             />
           </div>
-          <div className="absolute right-5 top-6 rotate-[8deg] rounded-md border-2 border-tota-ink bg-tota-marigold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.1em] shadow-[3px_3px_0_#1e3a2a]">
-            100% free tier
           </div>
+          <figcaption className="t-label flex items-center justify-between gap-3 border-t border-rule px-3 py-2.5 text-muted">
+            <span>Fig. 02 — The Daily Tota</span>
+            <span>Vol. You</span>
+          </figcaption>
         </div>
       </div>
-    </article>
-  );
-}
-
-function Card({ p, i }: { p: Project; i: number }) {
-  return (
-    <article
-      className="reveal group flex flex-col rounded-2xl border border-line-2 bg-paper p-6 transition-[border-color,box-shadow] duration-200 hover:border-clay hover:shadow-[0_4px_20px_rgba(200,115,88,0.1)]"
-      style={{ transitionDelay: `${(i % 3) * 70}ms` }}
-    >
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <Pill className={categoryTone[p.category]}>{p.category}</Pill>
-        <div className="flex items-center gap-3">
-          {p.github && (
-            <a
-              href={p.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${p.name} on GitHub`}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-faint transition-colors hover:bg-paper-2 hover:text-ink"
-            >
-              <Github size={16} />
-            </a>
-          )}
-          {p.live && (
-            <a
-              href={p.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-9 items-center gap-1 font-mono text-[11px] tracking-[0.04em] text-clay transition-colors hover:text-clay-dark"
-            >
-              Live
-              <ArrowUpRight size={13} />
-            </a>
-          )}
-        </div>
-      </div>
-      <h3 className="font-serif text-[24px] leading-tight tracking-[-0.01em] text-ink">{p.name}</h3>
-      <p className="mt-2 font-sans text-[14.5px] font-semibold leading-[1.5] text-ink-2">{p.what}</p>
-      <p className="mt-2.5 flex-1 font-sans text-[14px] leading-[1.68] text-muted">{p.why}</p>
-      <ul className="mt-5 flex flex-wrap gap-1.5">
-        {p.tags.map((t) => (
-          <li key={t} className="rounded-full bg-paper-2 px-2.5 py-1 font-mono text-[10px] text-faint">
-            {t}
-          </li>
-        ))}
-      </ul>
     </article>
   );
 }
 
 export default function Work() {
   return (
-    <section id="work" className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
+    <section
+      id="work"
+      className="mx-auto max-w-[1240px] px-6 pt-16 sm:px-8 md:pt-20"
+    >
       <SectionHead
         index="02"
         label="Work"
@@ -262,23 +201,77 @@ export default function Work() {
         lede="All deployed, none of them a demo. Most were built solo, end to end, to fix a problem I actually had. The first one is the one I'm all in on."
       />
 
-      <div className="mt-14">
-        <Featured />
+      <div className="pt-8">
+        <Feature />
       </div>
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <Card key={p.name} p={p} i={i} />
+      <div className="mt-8 border-t border-ink">
+        {projects.map((p) => (
+          <article
+            key={p.name}
+            className="reveal grid items-baseline gap-x-6 gap-y-2 border-b border-rule py-6 transition-colors duration-150 hover:bg-paper-2 md:grid-cols-[72px_1.05fr_1.55fr_150px]"
+          >
+            <div className="t-label text-faint">{p.idx}</div>
+
+            <div>
+              <h3 className="text-[20px] font-bold tracking-[-0.02em] [font-stretch:108%]">
+                {p.name}
+              </h3>
+              <span className="t-label mt-2 inline-block border border-rule px-2 py-0.5 text-[10px] text-muted">
+                {p.category}
+              </span>
+            </div>
+
+            <div>
+              <p className="text-[14.5px] font-semibold leading-[1.5]">
+                {p.what}
+              </p>
+              <p className="mt-1.5 text-[14px] leading-[1.62] text-muted">
+                {p.why}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                {p.tags.map((t) => (
+                  <li key={t} className="t-label text-[10px] text-faint">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex gap-4 md:justify-end">
+              {p.github && (
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="t-label flex min-h-11 items-center text-faint transition-colors duration-150 hover:text-ink"
+                >
+                  Code
+                </a>
+              )}
+              {p.live && (
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="t-label flex min-h-11 items-center text-blue transition-colors duration-150 hover:bg-acid hover:text-ink"
+                >
+                  Live ↗
+                </a>
+              )}
+            </div>
+          </article>
         ))}
       </div>
 
-      <p className="reveal mt-8 font-sans text-[14px] text-muted">
-        More on GitHub: claude-deck, deja-vu-agent, open-money-intel, pricekit, and the rest.{" "}
+      <p className="reveal mt-6 text-[14px] text-muted">
+        More on GitHub: claude-deck, deja-vu-agent, open-money-intel, pricekit,
+        and the rest.{" "}
         <a
           href="https://github.com/reetbatra?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-ink underline decoration-line-2 underline-offset-4 transition-colors hover:decoration-clay"
+          className="font-semibold text-ink underline decoration-rule underline-offset-4 transition-colors hover:decoration-blue"
         >
           All repos
         </a>

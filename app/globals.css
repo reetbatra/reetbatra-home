@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
+/* ── Grid & Mono ───────────────────────────────────────────────
+   Swiss-technical system shared by reetbatra.com, fde. and devrel.
+   Rules: square corners only, no box shadows, hairline rules,
+   uppercase mono labels, numbered sections, tables over cards.
+   ─────────────────────────────────────────────────────────────── */
 @theme {
-  --color-paper: #fdfaf5;
-  --color-paper-2: #f5ede3;
-  --color-line: #ece0d4;
-  --color-line-2: #e4d4c4;
-  --color-ink: #1c1a17;
-  --color-ink-2: #4a4038;
-  --color-muted: #7a6d63;
-  --color-faint: #9c8c80;
-  --color-clay: #c87358;
-  --color-clay-dark: #a85f3e;
-  --color-moss: #5a9e7c;
-  --color-moss-dark: #3d7a5a;
-  --color-plum: #5a4a8a;
-  --color-tota-paper: #fbf3e0;
-  --color-tota-ink: #1e3a2a;
-  --color-tota-green: #178a4c;
-  --color-tota-marigold: #ffd24a;
+  --color-paper: #f2f2ee;
+  --color-paper-2: #e9e9e3;
+  --color-paper-3: #dededa;
+  --color-ink: #111113;
+  --color-ink-2: #33332f;
+  --color-muted: #65655f;
+  --color-faint: #8a8a83;
+  --color-rule: #cfcfc7;
+  --color-blue: #1b34f5;
+  --color-blue-dim: #6b7bf0;
+  --color-acid: #ddf247;
 
-  --font-serif: var(--font-dm-serif), Georgia, serif;
-  --font-sans: var(--font-jakarta), system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 @layer base {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -33,14 +33,14 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 88px;
+    scroll-padding-top: 72px;
   }
 
   body {
     background: var(--color-paper);
     color: var(--color-ink);
-    -webkit-font-smoothing: antialiased;
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
@@ -52,24 +52,76 @@
     text-decoration: none;
     color: inherit;
   }
+
+  /* The system has no rounded corners. Kill UA defaults too. */
+  button,
+  input,
+  select,
+  textarea {
+    border-radius: 0;
+    font: inherit;
+  }
 }
 
 ::selection {
-  background: #c87358;
-  color: #fdfaf5;
+  background: var(--color-acid);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-clay);
-  outline-offset: 3px;
-  border-radius: 4px;
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
 }
 
-/* Scroll reveal. Elements start hidden only when JS has marked the page. */
+/* Display type: Archivo's width axis is what makes this look drawn
+   rather than defaulted. Semantic classes so it stays consistent. */
+.t-display {
+  font-stretch: 118%;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.t-display-sub {
+  text-transform: none;
+  font-stretch: 88%;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.t-head {
+  font-stretch: 112%;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.t-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Acid marker behind a phrase. Clone so it wraps cleanly. */
+.mark {
+  background: var(--color-acid);
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Scroll reveal. Hidden only once JS has marked the document, so the
+   page is fully readable with JS off and for crawlers. */
 html.js .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 html.js .reveal.is-visible {
   opacity: 1;
@@ -77,12 +129,16 @@ html.js .reveal.is-visible {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
-  animation: marquee 38s linear infinite;
+  animation: marquee 42s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -97,7 +153,9 @@ html.js .reveal.is-visible {
   .marquee-track {
     animation: none;
   }
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
