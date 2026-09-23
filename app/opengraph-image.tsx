@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#f2f2ee",
-          color: "#111113",
+          background: "#fdfaf5",
+          color: "#1c1a17",
           fontFamily: "serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function OpenGraphImage() {
             alignItems: "center",
             fontSize: 22,
             letterSpacing: 4,
-            color: "#65655f",
+            color: "#9c8c80",
             fontFamily: "monospace",
           }}
         >
@@ -43,7 +43,8 @@ export default function OpenGraphImage() {
               fontSize: 108,
               lineHeight: 1,
               letterSpacing: -4,
-              color: "#1b34f5",
+              color: "#c87358",
+              fontStyle: "italic",
             }}
           >
             marketer by habit.
@@ -55,7 +56,7 @@ export default function OpenGraphImage() {
             justifyContent: "space-between",
             alignItems: "flex-end",
             fontSize: 28,
-            color: "#65655f",
+            color: "#7a6d63",
             fontFamily: "sans-serif",
           }}
         >

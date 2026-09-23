@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import { DM_Serif_Display, Plus_Jakarta_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-// The width axis is doing real work here: headlines run expanded,
-// sub-headlines run condensed. Without `wdth` this is just another grotesk.
-const archivo = Archivo({
+const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
-  weight: "variable",
-  axes: ["wdth"],
-  variable: "--font-archivo",
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-dm-serif",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-jetbrains",
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
@@ -51,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${jetbrainsMono.variable}`}
+      className={`${dmSerifDisplay.variable} ${plusJakartaSans.variable} ${dmMono.variable}`}
     >
       <body>{children}</body>
     </html>

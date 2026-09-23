@@ -10,7 +10,8 @@ export default function Icon() {
         style={{
           width: 32,
           height: 32,
-          background: "#111113",
+          borderRadius: 8,
+          background: "#1c1a17",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -20,7 +21,7 @@ export default function Icon() {
           style={{
             fontFamily: "serif",
             fontSize: 15,
-            color: "#ddf247",
+            color: "#c87358",
             letterSpacing: "-0.5px",
             lineHeight: 1,
           }}

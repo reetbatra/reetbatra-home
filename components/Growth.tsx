@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CountUp from "./CountUp";
 import SectionHead from "./SectionHead";
+import { ArrowUpRight } from "./icons";
 
 const stats = [
   { to: 4800, suffix: "+", label: "developers taught in person", sub: "11 cities, one workshop tour" },
@@ -59,75 +60,67 @@ const marquee = [
 
 export default function Growth() {
   return (
-    <section id="growth" className="mt-16 border-y border-ink bg-paper-2 md:mt-20">
-      <div className="mx-auto max-w-[1240px] px-6 pt-16 sm:px-8 md:pt-20">
+    <section id="growth" className="border-y border-line bg-paper-2/60">
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
         <SectionHead
           index="03"
           label="Growth"
-          title="Shipping is half the job."
-          lede="The other half is getting anyone to notice. I spent four years marketing platforms that were hard to explain. The numbers below are from that run. AskTota is where I point all of it now, at consumers instead of developers."
+          title="Shipping is half the job. The other half is getting anyone to notice."
+          lede="I spent four years doing developer marketing for hard-to-explain platforms. Numbers below are from that run. AskTota is where I'm applying all of it now, to consumers instead of developers."
         />
 
-        <dl className="grid border-b border-ink sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`reveal border-b border-rule py-7 lg:border-b-0 ${
-                i > 0 ? "lg:border-l lg:border-rule lg:pl-6" : ""
-              } ${i < 3 ? "lg:pr-6" : ""}`}
-            >
-              <dd className="text-[clamp(38px,4.2vw,56px)] leading-none tracking-[-0.045em] [font-stretch:112%] font-bold">
+        <dl className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line-2 bg-line-2 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="reveal bg-paper p-7">
+              <dd className="font-serif text-[clamp(44px,4.6vw,64px)] leading-none tracking-[-0.03em] text-clay">
                 <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
               </dd>
-              <dt className="mt-3 text-[14px] font-semibold">{s.label}</dt>
-              <p className="t-label mt-1.5 text-[10px] text-muted">{s.sub}</p>
+              <dt className="mt-3 font-sans text-[14px] font-semibold text-ink">{s.label}</dt>
+              <p className="mt-1 font-sans text-[12.5px] text-faint">{s.sub}</p>
             </div>
           ))}
         </dl>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {rooms.map((r, i) => (
             <a
               key={r.photo}
               href={r.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`reveal group block border-b border-rule pb-6 pt-6 ${
-                i > 0 ? "lg:border-l lg:border-rule lg:pl-5" : ""
-              } ${i < 3 ? "lg:pr-5" : ""}`}
-              style={{ transitionDelay: `${i * 60}ms` }}
+              className="reveal group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-[#221f1c]"
+              style={{ transitionDelay: `${i * 70}ms` }}
             >
-              <div className="relative h-[250px] overflow-hidden border border-ink bg-ink">
-                <Image
-                  src={r.photo}
-                  alt={r.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
-                  className="object-cover saturate-[0.9] transition-[filter,transform] duration-500 group-hover:scale-[1.02] group-hover:saturate-100"
-                  style={{ objectPosition: r.position }}
-                />
-              </div>
-              <div className="t-label mt-3 text-blue">{r.label}</div>
-              <div className="mt-1.5 text-[15px] font-semibold leading-[1.35]">
-                {r.title}
-              </div>
-              <div className="t-label mt-2 text-faint transition-colors group-hover:text-ink">
-                Proof ↗
+              <Image
+                src={r.photo}
+                alt={r.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                className="object-cover opacity-90 transition-[transform,opacity] duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                style={{ objectPosition: r.position }}
+              />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#1c1a17] via-[#1c1a17]/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <div className="mb-1.5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-[#c8a892]">
+                  {r.label}
+                </div>
+                <div className="font-serif text-[18px] leading-tight text-paper">{r.title}</div>
+                <div className="mt-2 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#a89a8e] transition-colors group-hover:text-paper">
+                  Proof
+                  <ArrowUpRight size={12} />
+                </div>
               </div>
             </a>
           ))}
         </div>
       </div>
 
-      <div className="overflow-hidden border-t border-ink py-3" aria-hidden>
-        <div className="marquee-track flex w-max whitespace-nowrap">
+      <div className="overflow-hidden border-t border-line py-4" aria-hidden>
+        <div className="marquee-track flex w-max gap-10 whitespace-nowrap">
           {[...marquee, ...marquee].map((m, i) => (
-            <span
-              key={i}
-              className="t-label flex items-center gap-8 pr-8 text-muted"
-            >
+            <span key={i} className="flex items-center gap-10 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
               {m}
-              <span className="h-[5px] w-[5px] bg-blue" />
+              <span className="h-1 w-1 rounded-full bg-clay" />
             </span>
           ))}
         </div>
