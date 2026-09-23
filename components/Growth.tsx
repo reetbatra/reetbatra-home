@@ -65,7 +65,7 @@ export default function Growth() {
           index="03"
           label="Growth"
           title="Shipping is half the job."
-          lede="The other half is getting anyone to notice. I spent four years doing developer marketing for hard-to-explain platforms. Numbers below are from that run. AskTota is where I'm applying all of it now, to consumers instead of developers."
+          lede="The other half is getting anyone to notice. I spent four years marketing platforms that were hard to explain. The numbers below are from that run. AskTota is where I point all of it now, at consumers instead of developers."
         />
 
         <dl className="grid border-b border-ink sm:grid-cols-2 lg:grid-cols-4">

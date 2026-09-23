@@ -14,11 +14,11 @@ export default function Footer() {
           <div>
             <div className="t-label mb-5 text-acid">06 / Say hi</div>
             <h2 className="t-head max-w-[16ch] text-[clamp(32px,4.8vw,66px)]">
-              Building something people have to get before they can use it?
+              Building something people have to understand before they can use it?
             </h2>
             <p className="mt-6 max-w-[52ch] text-[15.5px] leading-[1.62] text-paper/70">
-              I&apos;m the person who builds it, writes it up, and gets it in
-              front of the right people. One email, I reply.
+              That&apos;s the work I&apos;m best at. Build it, explain it, put
+              it in front of the right people. One email and I reply.
             </p>
           </div>
           <a

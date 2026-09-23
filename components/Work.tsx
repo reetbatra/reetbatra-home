@@ -179,7 +179,7 @@ function Feature() {
           </div>
           </div>
           <figcaption className="t-label flex items-center justify-between gap-3 border-t border-rule px-3 py-2.5 text-muted">
-            <span>Fig. 02 — The Daily Tota</span>
+            <span>Fig. 02 · The Daily Tota</span>
             <span>Vol. You</span>
           </figcaption>
         </div>
@@ -198,7 +198,7 @@ export default function Work() {
         index="02"
         label="Work"
         title="Things people can use today."
-        lede="All deployed, none of them a demo. Most were built solo, end to end, to fix a problem I actually had. The first one is the one I'm all in on."
+        lede="All deployed, none of them a demo. Most were built alone, end to end, to fix something that was bothering me. The first one is where all my time goes now."
       />
 
       <div className="pt-8">

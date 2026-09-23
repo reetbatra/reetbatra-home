@@ -37,10 +37,10 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-[46ch] text-[16.5px] leading-[1.6] text-ink-2">
-            I&apos;m Reet. I write the code, ship the product, and then go find
-            the people it&apos;s for. Ten-plus products shipped in the last year,
-            four years of getting developers to actually use hard things, and one
-            astrology app that reads like a <span className="mark">group chat</span>.
+            I&apos;m Reet. I build the thing, then go find the people for it.
+            Ten-plus products shipped in the last year, four years spent
+            explaining hard software to developers, and one astrology app that
+            reads like a <span className="mark">group chat</span>.
           </p>
 
           <div className="mt-10 flex w-fit border border-ink">
@@ -88,7 +88,7 @@ export default function Hero() {
               />
             </div>
             <figcaption className="t-label flex items-center justify-between gap-3 border-t border-ink px-3 py-2.5 text-muted">
-              <span>Fig. 01 — ETHIndia, technical talk</span>
+              <span>Fig. 01 · ETHIndia, technical talk</span>
               <span className="text-blue" aria-hidden>
                 ■
               </span>
