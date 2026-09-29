@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="reveal grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
-              06: Say hi
+              07: Say hi
             </div>
             <h2 className="max-w-[720px] font-serif text-[clamp(40px,5.5vw,76px)] leading-[0.98] tracking-[-0.03em]">
               Building something people have to <em className="italic text-clay">get</em> before they can use it?

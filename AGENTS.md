@@ -1,5 +1,7 @@
 # What this project is
-The home page at reetbatra.com. A personal portfolio, single page, Next.js 16 (App Router) + TypeScript + Tailwind v4, no other runtime deps. Positioning: builder first, product and growth marketing second. Sections: Hero, How I work, Work (AskTota featured), Growth, Life, Now, Footer.
+The home page at reetbatra.com. A personal portfolio, single page, Next.js 16 (App Router) + TypeScript + Tailwind v4, no other runtime deps. Positioning: builder first, product and growth marketing second. Sections: Hero, How I work, Work (AskTota featured), Growth, Life, Shelf (books, as a ticked to-do list), Now, Footer.
+
+The reading list lives in `lib/books.ts`. To add a book, append `{ title, author, read }` there; `read: false` shows it unticked. Only add books Reet has actually named.
 
 The FDE-specific job-search portfolio is a separate repo (`fde-portfolio`) served at fde.reetbatra.com. Keep the two visually related (same fonts and palette) but do not merge them.
 
@@ -11,7 +13,7 @@ The FDE-specific job-search portfolio is a separate repo (`fde-portfolio`) serve
 - Site-wide CSS resets live in `@layer base` in `app/globals.css`. Unlayered rules would beat Tailwind utilities, so keep them layered.
 
 # Commands
-- `npm run dev` / `npm run lint` / `npm run build`
+- `npm run dev` / `npm run lint` / `npm run build` / `npm test`
 
 # This is NOT the Next.js you know
 This version has breaking changes. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.

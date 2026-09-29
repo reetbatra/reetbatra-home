@@ -25,7 +25,7 @@ const items = [
 export default function Now() {
   return (
     <section id="now" className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 md:py-28">
-      <SectionHead index="05" label="Now" title="What I'm doing this month." />
+      <SectionHead index="06" label="Now" title="What I'm doing this month." />
 
       <dl className="mt-12 divide-y divide-line border-y border-line">
         {items.map((it) => (

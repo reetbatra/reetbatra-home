@@ -6,6 +6,7 @@ import Life from "@/components/Life";
 import Nav from "@/components/Nav";
 import Now from "@/components/Now";
 import Reveal from "@/components/Reveal";
+import Shelf from "@/components/Shelf";
 import Work from "@/components/Work";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Work />
         <Growth />
         <Life />
+        <Shelf />
         <Now />
       </main>
       <Footer />

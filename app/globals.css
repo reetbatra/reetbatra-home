@@ -76,6 +76,29 @@ html.js .reveal.is-visible {
   transform: none;
 }
 
+/* Shelf: read books get a hand-drawn tick and a marker strike. Both draw in
+   when their row reveals, and render finished without JS. */
+.strike-read {
+  text-decoration-line: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(200 115 88 / 0.55);
+}
+html.js .reveal .tick-draw {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  transition: stroke-dashoffset 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+}
+html.js .reveal.is-visible .tick-draw {
+  stroke-dashoffset: 0;
+}
+html.js .reveal .strike-read {
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.4s ease 0.8s;
+}
+html.js .reveal.is-visible .strike-read {
+  text-decoration-color: rgb(200 115 88 / 0.55);
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
