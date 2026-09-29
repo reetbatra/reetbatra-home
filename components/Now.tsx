@@ -4,7 +4,7 @@ import { ArrowUpRight } from "./icons";
 const items = [
   {
     k: "Building",
-    v: "AskTota. Android is live, iOS is next, and the daily reels engine posts at 20:00 IST whether I feel like it or not.",
+    v: "AskTota. Android is live, iOS is next, and the daily reels engine posts at 13:00 IST whether I feel like it or not.",
     href: "https://www.asktota.com",
     cta: "asktota.com",
   },

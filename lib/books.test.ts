@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { books, readingSummary, type Book } from "./books.ts";
+import { books, readingSummary, shelfGroups, type Book } from "./books.ts";
 
 test("every book has a title and author, and no title repeats", () => {
   const titles = new Set<string>();
@@ -18,10 +18,25 @@ test("book copy follows the site's no em dash rule", () => {
   }
 });
 
-test("The Almanack is on the list and marked read", () => {
-  const almanack = books.find((b) => b.title === "The Almanack of Naval Ravikant");
-  assert.ok(almanack, "The Almanack is missing");
-  assert.equal(almanack.read, true);
+test("exactly the books Reet has finished are ticked", () => {
+  const ticked = books.filter((b) => b.read).map((b) => b.title).sort();
+  assert.deepEqual(ticked, [
+    "Days at the Morisaki Bookshop",
+    "The Almanack of Naval Ravikant",
+    "Who Moved My Cheese?",
+  ]);
+});
+
+test("shelfGroups splits read from unread and keeps insertion order", () => {
+  const list: Book[] = [
+    { title: "A", author: "X", read: false },
+    { title: "B", author: "Y", read: true },
+    { title: "C", author: "Z", read: false },
+    { title: "D", author: "W", read: true },
+  ];
+  const { read, toRead } = shelfGroups(list);
+  assert.deepEqual(read.map((b) => b.title), ["B", "D"]);
+  assert.deepEqual(toRead.map((b) => b.title), ["A", "C"]);
 });
 
 test("readingSummary counts read and unread books", () => {
