@@ -5,6 +5,7 @@ const links = [
   { label: "GitHub", href: "https://github.com/reetbatra" },
   { label: "X", href: "https://x.com/reet_batra" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/reet-batra/" },
+  { label: "YouTube", href: "https://www.youtube.com/@Reet-DevRel" },
   { label: "Blog", href: "https://reet.hashnode.dev" },
 ];
 
