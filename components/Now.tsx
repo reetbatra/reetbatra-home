@@ -10,9 +10,9 @@ const items = [
   },
   {
     k: "Contributing",
-    v: "Sarvam AI's open source: a TTS parameter fix in their skills library (merged) and a streaming fix in the AI SDK provider (in review). The kind of bugs you only hit by building on an SDK instead of reading it.",
-    href: "https://github.com/sarvamai/skills/pull/17",
-    cta: "The merged PR",
+    v: "Docs fixes for AI companies I build on: a Quickstart fix in Cyberwave's docs and a TTS parameter fix in Sarvam AI's skills library, both merged. The kind of bugs you only hit by building on an SDK instead of reading it.",
+    href: "https://github.com/cyberwave-os/docs-mintlify/pull/105",
+    cta: "The latest merged PR",
   },
   {
     k: "Open to",
@@ -48,7 +48,7 @@ export default function Now() {
       </dl>
 
       <p className="reveal mt-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-faint">
-        Updated September 2026
+        Updated October 2026
       </p>
     </section>
   );
