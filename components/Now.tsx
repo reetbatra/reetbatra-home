@@ -10,7 +10,7 @@ const items = [
   },
   {
     k: "Contributing",
-    v: "Docs fixes for AI companies I build on: a Quickstart fix in Cyberwave's docs and a TTS parameter fix in Sarvam AI's skills library, both merged. The kind of bugs you only hit by building on an SDK instead of reading it.",
+    v: "Docs and agent-skill fixes for the tools I build on: a Quickstart fix in Cyberwave's docs, a TTS parameter fix in Sarvam AI's skills library, and a stale Docker warning in Zcash Labs' agent skills, all merged. The kind of bugs you only hit by building on an SDK instead of reading it.",
     href: "https://github.com/cyberwave-os/docs-mintlify/pull/105",
     cta: "The latest merged PR",
   },
