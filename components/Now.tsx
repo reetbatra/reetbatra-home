@@ -10,8 +10,8 @@ const items = [
   },
   {
     k: "Contributing",
-    v: "Docs and agent-skill fixes for the tools I build on: a Quickstart fix in Cyberwave's docs, a TTS parameter fix in Sarvam AI's skills library, and a stale Docker warning in Zcash Labs' agent skills, all merged. The kind of bugs you only hit by building on an SDK instead of reading it.",
-    href: "https://github.com/cyberwave-os/docs-mintlify/pull/105",
+    v: "Fixes for the tools I build on: a streaming bug and a TTS parameter in Sarvam AI's SDK and skills, a Quickstart crash in Cyberwave's docs, and a stale Docker warning in Zcash Labs' agent skills, all merged. I also reported ten broken imports in Mastra's docs, and their team shipped the fix the same day. The kind of bugs you only hit by building on an SDK instead of reading it.",
+    href: "https://github.com/sarvam-ai/ai-sdk/pull/2",
     cta: "The latest merged PR",
   },
   {
